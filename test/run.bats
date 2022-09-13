@@ -129,12 +129,3 @@ print-stderr-stdout() {
   run true
   [ "$status" -eq 0 ]
 }
-
-@test "run does not change IFS" {
-  local IFS=_
-  run true
-  [ "$IFS" = _ ]
-  unset IFS
-  run true
-  [ "${IFS-(unset)}" = '(unset)' ]
-}
